@@ -1,0 +1,43 @@
+﻿@page
+@model RazorPagesDemoApp.Pages.Actors.ActorsListModel
+@{
+}
+
+<h1 class="mb-3">List Of Actors</h1>
+
+@if (Model.Actors != null && Model.Actors.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ActorId</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Awards</th>
+                <th>DateOfBirth</th>
+                <th>Movies</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actor in Model.Actors)
+            {
+                <tr>
+                    <td>@actor.ActorId</td>
+                    <td>@actor.FullName</td>
+                    <td>@actor.Email</td>
+                    <td>@actor.Awards</td>
+                    <td>@actor.DateOfBirth</td>
+                    <td>@actor.Movies</td>
+                    <td>
+                        <a href="/Actors/Edit/@actor.ActorId" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>               
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Actor at the moment!</p>
+}

@@ -1,0 +1,47 @@
+﻿@page
+@model RazorPagesDemoApp.Pages.Actors.AddModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<form method="post">
+
+    <h1 class="mb-3">Add New Actor</h1>
+
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        <div class="alert alert-success" role="alert">
+            @message
+        </div>
+    }
+
+<div class="mb-3">
+    <label class="form-label">FullName</label>
+    <input  type="text" class="form-control" asp-for="AddActorRequest.FullName"/>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    <input  type="text" class="form-control" asp-for="AddActorRequest.Email"/>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Awards</label>
+    <input  type="text" class="form-control" asp-for="AddActorRequest.Awards"/>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">DateOfBirth</label>
+    <input  type="date" class="form-control" asp-for="AddActorRequest.DateOfBirth"/>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Movies</label>
+    <input type="text" class="form-control" asp-for="AddActorRequest.Movies"/>
+</div>
+
+
+<div class="mb-5">
+    <button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
